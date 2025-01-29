@@ -52,6 +52,16 @@ user.email = "aloysberger@gmail.com";
 };
  };
 
+users = {
+users = {
+	aloys = {
+isNormalUser = true;
+extraGroups = ["wheel"];
+initialPassword = "password";
+};
+};
+};
+
   # Set your time zone.
   # time.timeZone = "Europe/Amsterdam";
 
