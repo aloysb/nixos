@@ -20,6 +20,7 @@
 	peripheralFirmwareDirectory = ./firmware;
 };
 
+nix.settings.experimental-features = ["nix-command" "flakes"];
   # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -30,6 +31,7 @@
 		settings.General.EnableNetworkConfiguration = true;
  	};
   };
+
 
 environment = {
 variables = {
@@ -58,6 +60,10 @@ users = {
 isNormalUser = true;
 extraGroups = ["wheel"];
 initialPassword = "password";
+packages = with pkgs;
+[
+gh
+];
 };
 };
 };
@@ -130,7 +136,7 @@ initialPassword = "password";
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+   services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
