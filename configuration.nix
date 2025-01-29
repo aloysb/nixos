@@ -16,9 +16,22 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
 
+nixpkgs.overlays = [
+	(final: prev: {
+		hyrpland = prev.hyrpland.override {
+			libgbm = prev.mesa;
+		};
+	})
+];
+
   hardware.asahi = {
 	peripheralFirmwareDirectory = ./firmware;
+useExperimentalGPUDriver = true;
+experimentalGPUInstallMode = "overlay";
 };
+
+hardware.graphics.enable = true;
+services.libinput.enable = true;
 
 nix.settings.experimental-features = ["nix-command" "flakes"];
   # networking.hostName = "nixos"; # Define your hostname.
@@ -51,6 +64,10 @@ config = {
 user.name = "aloysb";
 user.email = "aloysberger@gmail.com";
 };
+};
+
+hyprland = {
+	enable = true;
 };
  };
 
