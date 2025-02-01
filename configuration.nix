@@ -65,6 +65,7 @@ user.name = "aloysb";
 user.email = "aloysberger@gmail.com";
 };
 };
+zsh.enable = true;
 
 hyprland = {
 	enable = true;
@@ -81,6 +82,7 @@ packages = with pkgs;
 [
 gh
 ];
+shell = pkgs.zsh;
 };
 };
 };
