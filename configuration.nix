@@ -72,11 +72,23 @@ hyprland = {
 };
  };
 
+virtualisation = {
+	docker = {
+		enable = true;
+		enableOnBoot = true;
+		autoPrune = {
+			enable = true;
+		};
+		rootless = {
+			enable = true;
+		};
+	};
+};
 users = {
 users = {
 	aloys = {
 isNormalUser = true;
-extraGroups = ["wheel" "nixos"];
+extraGroups = ["wheel" "nixos" "docker"];
 initialPassword = "password";
 packages = with pkgs;
 [
