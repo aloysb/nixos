@@ -76,7 +76,7 @@ users = {
 users = {
 	aloys = {
 isNormalUser = true;
-extraGroups = ["wheel"];
+extraGroups = ["wheel" "nixos"];
 initialPassword = "password";
 packages = with pkgs;
 [
